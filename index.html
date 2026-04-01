@@ -393,7 +393,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
 <!-- 3. ВОРОНКИ -->
 <section class="section" id="voronki">
   <div class="section-title">Воронки <span>апреля</span></div>
-  <p class="section-desc">4 воронки — 1 действующая, 3 в тесте. Нажми, чтобы раскрыть.</p>
+  <p class="section-desc">5 воронок — 1 действующая, 4 в тесте. Нажми, чтобы раскрыть.</p>
 
   <div class="voronka open" onclick="toggleV(this)">
     <div class="voronka-header">
@@ -504,6 +504,40 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
       </ul>
     </div>
   </div>
+
+  <div class="voronka" onclick="toggleV(this)">
+    <div class="voronka-header">
+      <div class="voronka-num">05</div>
+      <div class="voronka-info">
+        <div class="voronka-title">Модуль «ИИ в клиниках» для курса</div>
+        <div class="voronka-sub">Партнёрская воронка — записать модуль из ~3 уроков</div>
+      </div>
+      <span class="v-badge b-test">Тест</span>
+      <span class="v-arrow">▶</span>
+    </div>
+    <div class="voronka-body">
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;">Пригласили Андрея и Илдара записать модуль про ИИ в косметологических клиниках для курса с целевой аудиторией косметологов. ~3 урока, Андрей — основной спикер, Илдар — помогает с материалом.</p>
+
+      <div style="margin-top:14px;margin-bottom:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Темы модуля (набросок)</div>
+      <ul class="vtask-list" style="margin-top:0;">
+        <li class="vtask-item"><div class="vdot"></div><div>ИИ-ландшафт 2026: что внедрять, а что пропустить <span class="rtag rta">Андрей</span> <span class="rtag rti">Илдар</span></div></li>
+        <li class="vtask-item"><div class="vdot b"></div><div>Экономика внедрения: считаем деньги и ROI <span class="rtag rti">Илдар</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>ИИ в продажах и реанимация клиентской базы <span class="rtag rta">Андрей</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>ИИ на приёме и в клиентском сервисе <span class="rtag rta">Андрей</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>Маркетинг и контент без раздувания штата <span class="rtag rta">Андрей</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>Управление изменениями: как подружить врачей с ИИ <span class="rtag rta">Андрей</span></div></li>
+      </ul>
+
+      <div style="margin-top:14px;margin-bottom:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Задачи на апрель</div>
+      <ul class="vtask-list" style="margin-top:0;">
+        <li class="vtask-item"><div class="vdot o"></div><div>Андрей + Илдар согласовывают структуру: сколько уроков и какие темы в каждом <span class="rtag rta">Андрей</span> <span class="rtag rti">Илдар</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>Каждый готовит презентацию по своим темам в шаблоне HAB <span class="rtag rta">Андрей</span> <span class="rtag rti">Илдар</span></div></li>
+        <li class="vtask-item"><div class="vdot"></div><div>Андрей записывает уроки дома и скидывает готовые материалы организаторам <span class="rtag rta">Андрей</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+
 </section>
 
 <!-- 4. ЗАДАЧИ -->
@@ -621,6 +655,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Провести встречу с Алёной по YouTube — понятно, какие ролики и концепция канала</div><div class="task-meta">До 10 апреля</div></div></label></div>
       <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Назначить съёмочный день для контента и день фотосессии</div><div class="task-meta">До 10 апреля</div></div></label></div>
       <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Найти все форумы косметологов апрель–июнь (Москва, Казань, другие города)</div><div class="task-meta">До 10 апреля</div></div></label></div>
+      <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎓 Согласовать с Илдаром структуру модуля «ИИ в клиниках» — сколько уроков, какие темы</div><div class="task-meta">До 10 апреля · курс</div></div></label></div>
       <div class="sales-task" style="display:flex;align-items:center;gap:9px;">
         <div class="sales-icon">💰</div>
         <div class="task-content" style="flex:1;"><div class="task-text">Продажи недели: 2+ сделки</div><div class="task-meta">Еженедельный план</div></div>
@@ -642,6 +677,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
     </div>
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Разместить вакансию менеджера по холодным звонкам, провести первые собеседования</div><div class="task-meta">До 17 апреля</div></div></label></div>
       <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Придумать рубрику-якорь для блога — прийти с готовым ответом</div><div class="task-meta">До 17 апреля</div></div></label></div>
+      <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎓 Готова презентация по своим темам модуля (шаблон HAB)</div><div class="task-meta">До 17 апреля · курс</div></div></label></div>
       <div class="sales-task" style="display:flex;align-items:center;gap:9px;">
         <div class="sales-icon">💰</div>
         <div class="task-content" style="flex:1;"><div class="task-text">Продажи недели: 2+ сделки</div><div class="task-meta">Еженедельный план</div></div>
@@ -662,6 +698,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
       </div>
     </div>
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Нанять менеджера по холодным звонкам и ввести в работу</div><div class="task-meta">До 24 апреля</div></div></label></div>
+      <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎓 Записаны уроки модуля дома — материалы готовы к отправке</div><div class="task-meta">До 24 апреля · курс</div></div></label></div>
             <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎬 Снят первый ролик для YouTube-канала</div><div class="task-meta">До 24 апреля</div></div></label></div>
 <div class="sales-task" style="display:flex;align-items:center;gap:9px;">
         <div class="sales-icon">💰</div>
@@ -736,6 +773,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Прописать сценарии для Вероники (10 Reels) — она только снимает</div><div class="task-meta">До 10 апреля</div></div></label></div>
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Запустить автопрозвон: выгрузить контакты из Контур.Компас, найти сервис, запустить тест</div><div class="task-meta">Бюджет ~5 000 ₽</div></div></label></div>
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Провести встречу с Владом: поставить ТЗ на оцифровку бизнеса + Telegram-бот, согласовать сроки</div><div class="task-meta">До 10 апреля</div></div></label></div>
+      <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎓 Согласовать с Андреем структуру модуля «ИИ в клиниках» — взять свои темы</div><div class="task-meta">До 10 апреля · курс</div></div></label></div>
       <div class="client-task"><label style="display:flex;align-items:center;gap:9px;width:100%;cursor:pointer;"><input type="checkbox" class="task-checkbox" style="flex-shrink:0;"><div class="task-content"><div class="task-text">🤝 Качественное ведение клиентов</div><div class="task-meta">Ежедневная системная задача</div></div></label></div>
     </div>
 
@@ -752,6 +790,7 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
       </div>
     </div>
       <div class="task-item"><label><div class="pdot ph"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">Изучить конкурентов: Забота 2.0 и Data Heroes — функционал, реализация, цены</div><div class="task-meta">До 17 апреля</div></div></label></div>
+      <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">🎓 Готова презентация по своим темам модуля (шаблон HAB)</div><div class="task-meta">До 17 апреля · курс</div></div></label></div>
       <div class="task-item"><label><div class="pdot pm"></div><input type="checkbox" class="task-checkbox"><div class="task-content"><div class="task-text">📊 Аналитика автопрозвона: звонки, лиды, стоимость — принято решение продолжать или нет</div><div class="task-meta">До 17 апреля</div></div></label></div>
       <div class="client-task"><label style="display:flex;align-items:center;gap:9px;width:100%;cursor:pointer;"><input type="checkbox" class="task-checkbox" style="flex-shrink:0;"><div class="task-content"><div class="task-text">🤝 Качественное ведение клиентов</div><div class="task-meta">Ежедневная системная задача</div></div></label></div>
     </div>
