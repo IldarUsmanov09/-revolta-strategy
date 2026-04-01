@@ -226,7 +226,59 @@ body{background:var(--bg);color:var(--text);font-family:"Montserrat",sans-serif;
 .client-task label{display:flex;align-items:center;gap:9px;width:100%;cursor:pointer;}
 .client-task .task-text{color:#7dd4f0;}
 .client-task .task-meta{color:rgba(125,212,240,0.6);}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .header{padding:28px 16px 24px;}
+  .header h1{font-size:32px;}
+  .nav{padding:0 8px;}
+  .nav a{padding:10px 10px;font-size:10px;}
+  .section{padding:28px 16px;}
+  .section-title{font-size:18px;}
+  .stats-grid{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+  .stat-revenue{font-size:18px;}
+  .roles-grid{grid-template-columns:1fr;}
+  .monthly-grid{grid-template-columns:1fr;}
+  .ig-grid{flex-direction:column;}
+  .ig-card{min-width:unset;}
+  .ctrl-grid{grid-template-columns:1fr;}
+  .who-bar{gap:10px;}
+  .who-name{font-size:14px;}
+  .task-item{padding:7px 9px;}
+  .task-text{font-size:11px;}
+  .task-meta{font-size:10px;}
+  .sales-task{padding:7px 9px;}
+  .client-task{padding:7px 9px;}
+  .week-header{flex-direction:column;align-items:flex-start;gap:6px;}
+  .reels-counter{align-self:flex-end;}
+  .report-block{padding:9px 11px;}
+  .report-field{flex-direction:column;gap:3px;}
+  .report-field-name{min-width:unset;}
+  .monthly-card{padding:14px 16px;}
+  .voronka-header{padding:12px 14px;gap:8px;}
+  .voronka-num{font-size:20px;min-width:22px;}
+  .voronka-title{font-size:12px;}
+  .voronka-sub{font-size:10px;}
+  .v-badge{display:none;}
+  .role-top{padding:14px 16px;}
+  .role-body{padding:12px 16px;}
+  .p-stage{padding:14px 16px;}
+  .p-stage-num{font-size:28px;}
+  .next-sess{padding:12px 18px;font-size:12px;}
+  .footer{padding:20px 16px;}
+  .result-btns{gap:4px;}
+  .btn-yes,.btn-no{width:28px;height:28px;font-size:13px;}
+  .reel-dot{width:22px;height:22px;}
+  .session-note{font-size:11px;padding:8px 12px;}
+  .transfer-rule{font-size:11px;padding:10px 13px;}
+}
+@media(max-width:400px){
+  .stats-grid{grid-template-columns:1fr;}
+  .header h1{font-size:26px;}
+}
 </style>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -815,6 +867,58 @@ function sendReport(btn){
   const text=encodeURIComponent(lines.join("\n"));
   window.open(`https://t.me/share/url?text=${text}`,"_blank");
 }
+
+// FIREBASE SHARED STATE
+const firebaseConfig = { databaseURL: "https://revolta1-default-rtdb.firebaseio.com" };
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const stateRef = db.ref('strategy_state');
+
+let _saving = false;
+
+function saveState(){
+  if(_saving) return;
+  const state={};
+  document.querySelectorAll('.task-checkbox').forEach((cb,i)=>{state['cb_'+i]=cb.checked;});
+  document.querySelectorAll('.reel-dot').forEach((d,i)=>{state['rd_'+i]=d.classList.contains('marked');});
+  document.querySelectorAll('.btn-yes').forEach((b,i)=>{state['by_'+i]=b.classList.contains('active');});
+  document.querySelectorAll('.btn-no').forEach((b,i)=>{state['bn_'+i]=b.classList.contains('active');});
+  stateRef.set(state);
+}
+
+function applyState(state){
+  if(!state) return;
+  _saving = true;
+  document.querySelectorAll('.task-checkbox').forEach((cb,i)=>{cb.checked=!!state['cb_'+i];});
+  document.querySelectorAll('.reel-dot').forEach((d,i)=>{
+    if(state['rd_'+i]){d.classList.add('marked');d.textContent='✓';}
+    else{d.classList.remove('marked');d.textContent='';}
+  });
+  document.querySelectorAll('.btn-yes').forEach((b,i)=>{
+    b.classList.toggle('active',!!state['by_'+i]);
+  });
+  document.querySelectorAll('.btn-no').forEach((b,i)=>{
+    b.classList.toggle('active',!!state['bn_'+i]);
+  });
+  _saving = false;
+}
+
+// Listen for real-time changes from all users
+stateRef.on('value', snap=>{ applyState(snap.val()); });
+
+// Patch toggleReel and toggleResult to save
+const _origToggleReel = toggleReel;
+toggleReel = function(dot){_origToggleReel(dot);saveState();};
+const _origToggleResult = toggleResult;
+toggleResult = function(btn,type){_origToggleResult(btn,type);saveState();};
+
+// Save on checkbox change
+document.addEventListener('change',function(e){if(e.target.classList.contains('task-checkbox'))saveState();});
+
+// Scroll to results on load
+window.addEventListener('load',function(){
+  document.getElementById('results').scrollIntoView({behavior:'instant'});
+});
 </script>
 </body>
 </html>
